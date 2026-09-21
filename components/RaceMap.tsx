@@ -5,7 +5,7 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Flag, Sparkles, Droplets, ShieldCheck, MapPin, Play, Pause, RotateCcw } from 'lucide-react'
 
-// Coordinate route Pandaan - Durensewu - Masjid Merah loop
+// Coordinate route Pandaan - Durensewu - Masjid Moekhlas Sidik loop
 // Elevation profile matches each point along the track
 export interface RoutePoint {
   lat: number
@@ -18,7 +18,7 @@ export interface RoutePoint {
 }
 
 export const ROUTE_POINTS: RoutePoint[] = [
-  { lat: -7.67120, lng: 112.69830, name: 'Masjid Merah Moekhlas Sidik', distKm: 0.0, elevation: 110, type: 'start', desc: 'Start Line · Pelataran Masjid Merah' },
+  { lat: -7.67120, lng: 112.69830, name: 'Masjid Moekhlas Sidik Moekhlas Sidik', distKm: 0.0, elevation: 110, type: 'start', desc: 'Start Line · Pelataran Masjid Moekhlas Sidik' },
   { lat: -7.67380, lng: 112.70050, name: 'Jl. Raya Sukorame', distKm: 0.8, elevation: 122, type: 'waypoint', desc: 'Kawasan Perkebunan & Desa' },
   { lat: -7.67810, lng: 112.70320, name: 'Water Station 1 (WS 01)', distKm: 1.5, elevation: 142, type: 'ws', desc: 'Air mineral, isotonic & sponge' },
   { lat: -7.68350, lng: 112.70580, name: 'Pintu Gerbang Taman Dayu Selatan', distKm: 2.3, elevation: 165, type: 'waypoint', desc: 'Jalan rindang pohon pinus' },
@@ -26,7 +26,7 @@ export const ROUTE_POINTS: RoutePoint[] = [
   { lat: -7.68450, lng: 112.71350, name: 'Medical Station & U-Turn', distKm: 3.8, elevation: 175, type: 'medical', desc: 'Tim medis, ambulans & fisioterapi' },
   { lat: -7.67920, lng: 112.71040, name: 'Jalur Hijau Durensewu', distKm: 4.4, elevation: 148, type: 'waypoint', desc: 'Pemandangan terasering sawah' },
   { lat: -7.67450, lng: 112.70420, name: 'Simpang Heritage Pandaan', distKm: 4.8, elevation: 125, type: 'waypoint', desc: 'Pintu masuk menuju garis finish' },
-  { lat: -7.67120, lng: 112.69830, name: 'Finish Line Masjid Merah', distKm: 5.0, elevation: 110, type: 'finish', desc: 'Pengambilan medali & refreshment finish' },
+  { lat: -7.67120, lng: 112.69830, name: 'Finish Line Masjid Moekhlas Sidik', distKm: 5.0, elevation: 110, type: 'finish', desc: 'Pengambilan medali & refreshment finish' },
 ]
 
 export default function InteractiveRaceMap() {
@@ -59,7 +59,7 @@ export default function InteractiveRaceMap() {
 
     // Draw route polyline
     const latlngs: L.LatLngExpression[] = ROUTE_POINTS.map(p => [p.lat, p.lng])
-    
+
     // Background glow line
     L.polyline(latlngs, {
       color: '#f3ba61',
@@ -341,10 +341,10 @@ export default function InteractiveRaceMap() {
         <div className="checkpoint-detail-pill">
           <div className="detail-icon">
             {activePoint.type === 'start' || activePoint.type === 'finish' ? <Flag size={16} /> :
-             activePoint.type === 'ws' ? <Droplets size={16} /> :
-             activePoint.type === 'cheer' ? <Sparkles size={16} /> :
-             activePoint.type === 'medical' ? <ShieldCheck size={16} /> :
-             <MapPin size={16} />}
+              activePoint.type === 'ws' ? <Droplets size={16} /> :
+                activePoint.type === 'cheer' ? <Sparkles size={16} /> :
+                  activePoint.type === 'medical' ? <ShieldCheck size={16} /> :
+                    <MapPin size={16} />}
           </div>
           <div className="detail-text">
             <b>{activePoint.desc || activePoint.name}</b>
