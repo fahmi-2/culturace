@@ -10,10 +10,10 @@ const RaceMap = dynamic(() => import('@/components/RaceMap'), {
 })
 
 const categories = [
-  { id: '5K', title: '5K Fun Run', subtitle: 'Santai & budaya · Early bird', price: 150000, regularPrice: 175000, tone: 'light', popular: true },
+  { id: '5K', title: '5K Fun Run', subtitle: 'Lari Santai · Early bird', price: 150000, regularPrice: 175000, tone: 'light', popular: true },
 ]
 const runners = [
-  ['01', 'Dimas Pratama', '0108', 'Candi Jawi', '00:41:08', '00:41:08'], ['02', 'Nadia Kirana', '0223', 'Masjid Merah', '00:42:19', '00:42:19'], ['03', 'Raka Aditya', '0091', 'Kaliandra', '00:43:44', '00:43:44'], ['04', 'Sari Wulandari', '0177', 'Pos 2', '00:45:12', '00:45:12'], ['05', 'Bagas Nugroho', '0314', 'Masjid Merah', '00:46:03', '00:46:03']
+  ['01', 'Dimas Pratama', '0108', 'Candi Jawi', '00:41:08', '00:41:08'], ['02', 'Nadia Kirana', '0223', 'Masjid Moekhlas Sidik', '00:42:19', '00:42:19'], ['03', 'Raka Aditya', '0091', 'Kaliandra', '00:43:44', '00:43:44'], ['04', 'Sari Wulandari', '0177', 'Pos 2', '00:45:12', '00:45:12'], ['05', 'Bagas Nugroho', '0314', 'Masjid Moekhlas Sidik', '00:46:03', '00:46:03']
 ]
 const formatIDR = (n: number) => new Intl.NumberFormat('id-ID').format(n)
 
@@ -62,9 +62,18 @@ export default function Home() {
 
   return <main className="site-shell">
     <nav className="navbar">
-      <a href="#top" className="brand">
-        <span className="brand-mark">C</span>
-        <span>CULTURACE<small>THE TAMANDAYU RACE EDITION</small></span>
+      <a href="#top" className="brand brand-header" aria-label="CULTURACE - Masjid Moekhlas Sidik Race Edition">
+        <img
+          src="/culturace-ruby.png"
+          alt="CULTURACE Logo"
+          className="brand-logo-img"
+        />
+        <div className="brand-badge-box">
+          <span className="brand-edition-capsule">
+            <span className="brand-edition-dot" />
+            MASJID MOEKHLAS SIDIK RACE EDITION
+          </span>
+        </div>
       </a>
       <div className="navlinks">
         <a href="#categories">Categories</a>
@@ -90,9 +99,18 @@ export default function Home() {
       <div className="mobile-drawer-overlay" onClick={() => setMobileNav(false)}>
         <aside className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
           <div className="drawer-header">
-            <div className="brand">
-              <span className="brand-mark">C</span>
-              <span>CULTURACE<small>PASURUAN RED EDITION</small></span>
+            <div className="brand brand-drawer">
+              <img
+                src="/culturace-ruby.png"
+                alt="CULTURACE Logo"
+                className="brand-logo-img brand-logo-drawer"
+              />
+              <div className="brand-badge-box">
+                <span className="brand-edition-capsule">
+                  <span className="brand-edition-dot" />
+                  MASJID MOEKHLAS SIDIK RACE EDITION
+                </span>
+              </div>
             </div>
             <button
               type="button"
@@ -120,7 +138,7 @@ export default function Home() {
       </div>
     )}
 
-    <section className="hero" id="top"><div className="hero-pattern" /><div className="hero-content"><div className="eyebrow"><span /> PANDAAN — PASURUAN CULTURAL HERITAGE RUN</div><h1>Lari melintasi<br /><em>keagungan budaya</em><br />dan landmark merah.</h1><p>Rasakan energi Pasuruan dalam satu langkah. Menyusuri jejak heritage, sawah hijau, dan arsitektur Masjid Merah yang ikonik.</p><div className="hero-actions"><button className="btn btn-gold" onClick={() => openRegister()}>Daftar Sekarang <ArrowRight size={17} /></button><a className="text-link" href="#route">Jelajahi rute <ChevronRight size={17} /></a></div><div className="stats"><div><strong>1,700+<span>+</span></strong><small>RUNNERS</small></div><div><strong>1</strong><small>KATEGORI</small></div><div><strong>Rp 20<span>jt</span></strong><small>PRIZE POOL</small></div></div></div><div className="hero-art"><div className="arch arch-back" /><div className="arch arch-front"><div className="dome">C</div><div className="stairs" /></div><div className="art-caption"><MapPin size={14} /> MASJID MERAH · PANDAAN</div></div></section>
+    <section className="hero" id="top"><div className="hero-pattern" /><div className="hero-content"><div className="eyebrow"><span /> PANDAAN — PASURUAN CULTURAL HERITAGE RUN</div><h1>Lari melintasi<br /><em>keagungan budaya</em><br />dan landmark merah.</h1><p>Rasakan energi Pasuruan dalam satu langkah. Menyusuri jejak heritage, sawah hijau, dan arsitektur Masjid Moekhlas Sidik yang ikonik.</p><div className="hero-actions"><button className="btn btn-gold" onClick={() => openRegister()}>Daftar Sekarang <ArrowRight size={17} /></button><a className="text-link" href="#route">Jelajahi rute <ChevronRight size={17} /></a></div><div className="stats"><div><strong>1,500+<span>+</span></strong><small>RUNNERS</small></div><div><strong>1</strong><small>KATEGORI</small></div><div><strong>Rp 20<span>jt</span></strong><small>PRIZE POOL</small></div></div></div><div className="hero-art"><div className="arch arch-back" /><div className="arch arch-front"><div className="dome">C</div><div className="stairs" /></div><div className="art-caption"><MapPin size={14} /> Masjid Moekhlas Sidik · PANDAAN</div></div></section>
     {/* Advance Calendar Style Countdown Section */}
     <div className="countdown-wrapper">
       <div className="countdown-card">
@@ -210,14 +228,14 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <section className="section categories-section" id="categories"><div className="section-heading"><div><span className="kicker">PILIH JEJAKMU</span><h2>Pilih jarak larimu</h2></div><p>Setiap kategori dirancang untuk menghadirkan pengalaman budaya yang berbeda. Temukan jarak yang sesuai dengan ceritamu.</p></div><div className="category-grid">{categories.map(cat => <article className={`category-card ${cat.tone}`} key={cat.id}>{cat.popular && <span className="popular">MOST POPULAR</span>}<div className="category-top"><span className="distance">{cat.id}</span><span className="category-icon"><Zap size={18} /></span></div><h3>{cat.title}</h3><p>{cat.subtitle}</p><strong className="price">Rp {formatIDR(cat.price)} <del>Rp {formatIDR(cat.regularPrice)}</del></strong><small className="early-bird">EARLY BIRD · HEMAT Rp {formatIDR(cat.regularPrice - cat.price)}</small><ul>{['Jersey Dry-Fit Batik Pasuruan', 'Finisher medal logam emas', 'BIB number + timing chip', 'Refreshments sepanjang rute', 'Asuransi perlombaan'].map(item => <li key={item}><Check size={15} />{item}</li>)}</ul><button className="btn btn-outline" onClick={() => openRegister(cat)}>Pilih Kategori <ArrowRight size={15} /></button></article>)}</div></section>
+    <section className="section categories-section" id="categories"><div className="section-heading"><div><span className="kicker">ONE RACE ONE STORY</span></div><p>Setiap kategori dirancang untuk menghadirkan pengalaman budaya yang berbeda. Temukan jarak yang sesuai dengan ceritamu.</p></div><div className="category-grid">{categories.map(cat => <article className={`category-card ${cat.tone}`} key={cat.id}>{cat.popular && <span className="popular">MOST POPULAR</span>}<div className="category-top"><span className="distance">{cat.id}</span><span className="category-icon"><Zap size={18} /></span></div><h3>{cat.title}</h3><p>{cat.subtitle}</p><strong className="price">Rp {formatIDR(cat.price)} <del>Rp {formatIDR(cat.regularPrice)}</del></strong><small className="early-bird">EARLY BIRD · HEMAT Rp {formatIDR(cat.regularPrice - cat.price)}</small><ul>{['Jersey Dry-Fit Batik Pasuruan', 'Finisher medal logam emas', 'BIB number + timing chip', 'Refreshments sepanjang rute', 'Asuransi perlombaan'].map(item => <li key={item}><Check size={15} />{item}</li>)}</ul><button className="btn btn-outline" onClick={() => openRegister(cat)}>Pilih Kategori <ArrowRight size={15} /></button></article>)}</div></section>
     <section className="section route-section" id="route">
       <div className="section-heading">
         <div>
           <span className="kicker">THE RED LOOP</span>
           <h2>Rute yang<br /><em>punya cerita.</em></h2>
         </div>
-        <p>Dari pelataran Masjid Merah, melewati warisan budaya dan kontur alam Pandaan. Setiap kilometer adalah bab baru.</p>
+        <p>Dari pelataran Masjid Moekhlas Sidik, melewati warisan budaya dan kontur alam Pandaan. Setiap kilometer adalah bab baru.</p>
         <small className="route-address">
           <MapPin size={14} /> Jalan Sukorame, Durensewu, Pandaan, Pasuruan 67156 ·
           <a href="https://www.google.com/maps/dir/?api=1&destination=-7.6712,112.6983" target="_blank" rel="noreferrer">
@@ -228,8 +246,23 @@ export default function Home() {
       <RaceMap />
     </section>
     <section className="section leaderboard-section" id="leaderboard"><div className="leader-top"><div><span className="kicker">LIVE RACE DATA</span><h2>Siapa yang<br /><em>memimpin?</em></h2></div><div className="live-badge"><span /> LIVE UPDATING <small>per 30 seconds</small></div></div><div className="leader-tools"><div className="search"><Search size={17} /><input placeholder="Cari nama atau BIB..." value={query} onChange={e => setQuery(e.target.value)} /></div><div className="filter-tabs">{['Semua', '5K', '10K', '21K'].map(f => <button key={f} className={leaderFilter === f ? 'active' : ''} onClick={() => setLeaderFilter(f)}>{f}</button>)}</div></div><div className="leader-table"><div className="table-head"><span>RANK</span><span>RUNNER</span><span>LAST CHECKPOINT</span><span>SPLIT TIME</span><span>NET TIME</span></div>{visibleRunners.map((r, i) => <div className="table-row" key={r[2]}><strong className={i < 3 ? `medal medal-${i + 1}` : ''}>{r[0]}</strong><div className="runner"><span>{r[1].split(' ').map(x => x[0]).join('').slice(0, 2)}</span><b>{r[1]}</b><small>BIB #{r[2]}</small></div><span>{r[3]}</span><span>{r[4]}</span><strong>{r[5]}</strong></div>)}</div></section>
-    <section className="pass-banner" id="pass"><div><span className="kicker">READY WHEN YOU ARE</span><h2>Your race.<br /><em>Your pass.</em></h2><p>Race Pass digital menyimpan semua yang kamu perlukan di hari perlombaan.</p><button className="btn btn-gold" onClick={() => setModal('pass')}>Lihat Race Pass <QrCode size={17} /></button></div><div className="mini-pass"><div className="pass-brand">CULTURACE <span>2026</span></div><div className="mini-bib">0223</div><div className="mini-details"><b>NADIA KIRANA</b><small>10K HERITAGE CHALLENGE · SIZE M</small></div><QrCode size={58} /></div></section>
-    <footer><div className="brand"><span className="brand-mark">C</span><span>CULTURACE<small>PASURUAN RED EDITION</small></span></div><span>RUN WITH CULTURE · RUN WITH PURPOSE</span><span>© 2026 CULTURACE</span></footer>
+    <footer>
+      <div className="brand brand-footer">
+        <img
+          src="/culturace-white.png"
+          alt="CULTURACE Logo"
+          className="brand-logo-img brand-logo-footer"
+        />
+        <div className="brand-badge-box">
+          <span className="brand-edition-capsule brand-capsule-footer">
+            <span className="brand-edition-dot brand-dot-gold" />
+            MASJID MOEKHLAS SIDIK RACE EDITION
+          </span>
+        </div>
+      </div>
+      <span>RUN WITH CULTURE · RUN WITH PURPOSE</span>
+      <span>© 2026 CULTURACE</span>
+    </footer>
     {modal && <div className="modal-backdrop" onMouseDown={() => setModal(null)}><div className={`modal ${modal === 'scanner' ? 'scanner-modal' : ''}`} onMouseDown={e => e.stopPropagation()}><button className="modal-close" onClick={() => setModal(null)}><X size={18} /></button>{modal === 'register' && <><div className="modal-kicker">CULTURACE REGISTRATION</div><h2>Mulai langkahmu.</h2><div className="stepper">{['Data diri', 'Perlengkapan', 'Review'].map((s, i) => <div className={step >= i + 1 ? 'done' : ''} key={s}><span>{step > i + 1 ? <Check size={14} /> : i + 1}</span>{s}</div>)}</div>{step === 1 && <div className="form-grid"><label>Nama lengkap<input placeholder="Nama sesuai identitas" /></label><label>Email aktif<input type="email" placeholder="kamu@email.com" /></label><label>No. WhatsApp<input placeholder="08xx xxxx xxxx" /></label><label>Kontak darurat<input placeholder="Nama · nomor telepon" /></label><div className="selected-category"><small>KATEGORI PILIHAN</small><b>{selected.title}</b><span>Rp {formatIDR(selected.price)}</span></div></div>}{step === 2 && <div className="gear-step"><div className="jersey-preview"><div className="jersey">C<span>RACE<br />WITH<br />CULTURE</span></div><div className="jersey-toggle">FRONT / BACK</div></div><div><label>BIB NAME<input value={bib} onChange={e => setBib(e.target.value.toUpperCase().slice(0, 12))} /></label><div className="bib-preview"><small>LIVE BIB PREVIEW</small><b>{bib || 'YOUR NAME'}</b><span>#{selected.id === '10K' ? '0223' : '0108'}</span></div><label className="size-label">UKURAN JERSEY</label><div className="sizes">{['S', 'M', 'L', 'XL', 'XXL'].map(s => <button className={size === s ? 'active' : ''} key={s} onClick={() => setSize(s)}>{s}</button>)}</div></div></div>}{step === 3 && <div className="review"><div><span>RUNNER</span><b>{bib || 'Nadia Kirana'}</b></div><div><span>KATEGORI</span><b>{selected.title}</b></div><div><span>JERSEY</span><b>Size {size}</b></div><div><span>TOTAL</span><b>Rp {formatIDR(selected.price)}</b></div><p><ShieldCheck size={17} /> Data aman dan terlindungi.</p></div>}<div className="modal-actions"><button className="btn btn-ghost" onClick={() => step > 1 ? setStep(step - 1) : setModal(null)}>{step > 1 ? 'Kembali' : 'Batal'}</button><button className="btn btn-primary" onClick={() => step < 3 ? setStep(step + 1) : goPayment()}>{step < 3 ? 'Lanjutkan' : 'Ke Pembayaran'} <ArrowRight size={16} /></button></div></>}{modal === 'payment' && <><div className="modal-kicker">SECURE CHECKOUT <span className="payment-timer"><Clock3 size={14} /> 14:32</span></div><h2>Amankan slotmu.</h2><div className="order-summary"><span>{selected.title}<small>Registration fee</small></span><b>Rp {formatIDR(selected.price)}</b><span>Donasi pelestarian budaya<small>Opsional · 2% dari biaya</small></span><b>Rp {formatIDR(Math.round(selected.price * .02))}</b><span>Biaya admin</span><b>Rp 5.000</b><hr /><strong>Total pembayaran</strong><strong>Rp {formatIDR(selected.price + Math.round(selected.price * .02) + 5000)}</strong></div><div className="payment-tabs">{['QRIS', 'Virtual Account', 'E-Wallet'].map(p => <button className={payment === p ? 'active' : ''} key={p} onClick={() => setPayment(p)}>{p}</button>)}</div><div className="payment-box">{payment === 'QRIS' ? <><QrCode size={110} /><span>Scan dengan aplikasi pembayaranmu</span></> : <><b>{payment === 'Virtual Account' ? 'BCA Virtual Account' : 'GoPay / OVO / DANA'}</b><div className="va-number">8808 1022 3000 <Copy size={16} /></div><small>Berlaku selama 15 menit</small></>}</div><button className="btn btn-primary full" onClick={() => setModal('pass')}>Konfirmasi Pembayaran Selesai <Check size={17} /></button></>}{modal === 'pass' && <><div className="modal-kicker">DIGITAL RACE PASS <span className="status ready">● READY</span></div><h2>See you at the start.</h2><div className="race-pass"><div className="pass-head"><span>CULTURACE</span><b>2026</b></div><div className="pass-name"><small>RUNNER</small><strong>{bib || 'NADIA KIRANA'}</strong><span>10K HERITAGE CHALLENGE</span></div><div className="pass-bottom"><div><small>BIB NUMBER</small><b>#0223</b></div><div><small>JERSEY</small><b>SIZE {size}</b></div><QrCode size={65} /></div></div><button className="btn btn-primary full" onClick={() => setModal('scanner')}>Buka Marshal Scanner <Crosshair size={17} /></button></>}{modal === 'scanner' && <><div className="scanner-head"><span>MARSHAL SCANNER</span><span className="status ready">● ONLINE</span></div><h2>Scan race pass.</h2><div className="viewfinder"><div className="corner tl" /><div className="corner tr" /><div className="corner bl" /><div className="corner br" />{scanned && <div className="scan-result"><Check size={22} /><b>VALID RACE PASS</b><small>Nadia Kirana · BIB #0223</small></div>}</div>{scanned ? <button className="btn btn-primary full" onClick={() => setModal('pass')}>Konfirmasi Pengambilan & Cetak BIB <Check size={17} /></button> : <button className="btn btn-gold full" onClick={() => setScanned(true)}>Simulasikan Scan QR <QrCode size={17} /></button>}</>}</div></div>}
   </main>
 }
