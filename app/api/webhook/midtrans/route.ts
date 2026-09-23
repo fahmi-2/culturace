@@ -1,18 +1,14 @@
 import { NextResponse } from 'next/server';
 import crypto from 'crypto';
-import { Resend } from 'resend';
 import midtransClient from 'midtrans-client';
-import { TicketEmail } from '@/components/emails/TicketEmail';
 import pool from '@/lib/db';
 import { processOrderSettlement } from '@/lib/order-settlement';
 
 const apiClient = new midtransClient.CoreApi({
   isProduction: false,
-  serverKey: process.env.MIDTRANS_SERVER_KEY!,
-  clientKey: process.env.MIDTRANS_CLIENT_KEY!,
+  serverKey: process.env.MIDTRANS_SERVER_KEY || '',
+  clientKey: process.env.MIDTRANS_CLIENT_KEY || '',
 });
-
-const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function POST(request: Request) {
   try {
