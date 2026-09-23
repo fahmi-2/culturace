@@ -67,7 +67,7 @@
 
 /* Footer Brand */
 .brand-footer{display:inline-flex;align-items:center;gap:14px}
-.brand-logo-footer{height:40px;filter:drop-shadow(0 2px 8px rgba(255,255,255,.08))}
+.brand-logo-footer{height:48px;max-width:170px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(255,255,255,.08))}
 .brand-capsule-footer{background:#25252a;border-color:#3d3b42;color:#f2ba57}
 .brand-dot-gold{background:#f2ba57;box-shadow:0 0 0 2.5px rgba(242,186,87,.25)}
 
