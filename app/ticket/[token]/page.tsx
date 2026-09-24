@@ -58,64 +58,64 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f0eb] py-10 px-4 sm:px-6 flex flex-col items-center justify-center">
-      {/* Container Kartu Peserta */}
-      <div className="w-full max-w-lg bg-white rounded-3xl shadow-2xl overflow-hidden border border-[#e4d7cc]">
+    <div className="ticket-page-wrapper min-h-screen bg-[#f5f0eb] py-6 sm:py-10 px-4 sm:px-6 flex flex-col items-center justify-center">
+      {/* Container Kartu Peserta Resmi */}
+      <div className="ticket-card w-full max-w-[520px] bg-white rounded-3xl shadow-xl overflow-hidden border border-[#e4d7cc]">
         
         {/* Header E-Ticket */}
-        <div className="bg-gradient-to-r from-[#3a0a18] via-[#8e1025] to-[#a91024] p-6 sm:p-8 text-white relative">
+        <div className="ticket-header bg-gradient-to-r from-[#3a0a18] via-[#8e1025] to-[#a91024] p-5 sm:p-6 text-white relative">
           <div className="flex justify-between items-start">
             <div>
-              <span className="inline-block bg-[#f3ba61] text-[#3a0a18] font-mono font-bold text-[10px] tracking-wider px-2.5 py-1 rounded-full mb-2">
+              <span className="inline-block bg-[#f3ba61] text-[#3a0a18] font-mono font-bold text-[9px] tracking-wider px-2 py-0.5 rounded-full mb-1.5">
                 OFFICIAL RACE PASS
               </span>
-              <h1 className="text-2xl sm:text-3xl font-black tracking-tight">CULTURACE 2026</h1>
-              <p className="text-xs text-[#f7dfe0] mt-1">Masjid Moekhlas Sidik Race Edition · Pandaan</p>
+              <h1 className="text-xl sm:text-2xl font-black tracking-tight">CULTURACE 2026</h1>
+              <p className="text-[11px] text-[#f7dfe0] mt-0.5">Masjid Moekhlas Sidik Race Edition · Pandaan</p>
             </div>
             <div className="text-right">
-              <span className="text-[11px] font-mono text-[#f3ba61] block">KATEGORI</span>
-              <span className="text-2xl font-black font-mono">{ticket.category || '5K'}</span>
+              <span className="text-[10px] font-mono text-[#f3ba61] block">KATEGORI</span>
+              <span className="text-xl sm:text-2xl font-black font-mono">{ticket.category || '5K'}</span>
             </div>
           </div>
         </div>
 
         {/* BIB Hero Display */}
-        <div className="bg-[#fffdfa] border-b border-dashed border-[#d9c8bc] px-6 py-8 text-center relative">
-          <span className="text-[11px] font-mono tracking-widest text-[#8a7772] uppercase block mb-1">
+        <div className="ticket-hero bg-[#fffdfa] border-b border-dashed border-[#d9c8bc] px-5 py-5 text-center relative">
+          <span className="text-[10px] font-mono tracking-widest text-[#8a7772] uppercase block mb-0.5">
             NOMOR BIB RESMI
           </span>
-          <div className="text-5xl sm:text-6xl font-black font-mono tracking-tight text-[#a91024] my-2">
+          <div className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-[#a91024] my-1">
             {ticket.bib_number}
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#1f2024] mt-3 uppercase tracking-wide">
+          <h2 className="text-lg sm:text-xl font-bold text-[#1f2024] mt-1.5 uppercase tracking-wide">
             {ticket.user_name}
           </h2>
-          <span className="text-xs font-mono text-[#8a7772]">ORDER ID: #{ticket.order_id}</span>
+          <span className="text-[11px] font-mono text-[#8a7772]">ORDER ID: #{ticket.order_id}</span>
         </div>
 
         {/* Status Badges & Info Detail */}
-        <div className="p-6 sm:p-8 space-y-6">
+        <div className="ticket-body p-5 sm:p-6 space-y-4">
           {/* Status Row */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-[#fcfaf7] border border-[#eee5dc] p-3.5 rounded-xl">
-              <span className="text-[10px] font-mono text-[#8a7772] block uppercase mb-1">STATUS PEMBAYARAN</span>
-              <div className="flex items-center gap-1.5 text-emerald-700 font-bold text-xs sm:text-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+          <div className="grid grid-cols-2 gap-2.5">
+            <div className="bg-[#fcfaf7] border border-[#eee5dc] p-2.5 sm:p-3 rounded-xl">
+              <span className="text-[9px] font-mono text-[#8a7772] block uppercase mb-0.5">STATUS PEMBAYARAN</span>
+              <div className="flex items-center gap-1.5 text-emerald-700 font-bold text-xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                 <span>LUNAS (SETTLED)</span>
               </div>
             </div>
 
-            <div className={`border p-3.5 rounded-xl ${ticket.racepack_taken ? 'bg-emerald-50 border-emerald-200' : 'bg-amber-50 border-amber-200'}`}>
-              <span className="text-[10px] font-mono text-[#8a7772] block uppercase mb-1">STATUS RACE PACK</span>
-              <div className="flex items-center gap-1.5 font-bold text-xs sm:text-sm">
+            <div className={`border p-2.5 sm:p-3 rounded-xl ${ticket.racepack_taken ? 'bg-emerald-50 border-emerald-200' : 'bg-amber-50 border-amber-200'}`}>
+              <span className="text-[9px] font-mono text-[#8a7772] block uppercase mb-0.5">STATUS RACE PACK</span>
+              <div className="flex items-center gap-1.5 font-bold text-xs">
                 {ticket.racepack_taken ? (
                   <>
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                     <span className="text-emerald-800">SUDAH DIAMBIL</span>
                   </>
                 ) : (
                   <>
-                    <Clock className="w-4 h-4 text-amber-600 shrink-0" />
+                    <Clock className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                     <span className="text-amber-800">BELUM DIAMBIL</span>
                   </>
                 )}
@@ -124,42 +124,42 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
           </div>
 
           {/* QR Code Container */}
-          <div className="bg-[#faf6f2] border-2 border-[#eadfd6] rounded-2xl p-6 flex flex-col items-center text-center">
-            <span className="text-[10px] font-mono text-[#8a7772] tracking-wider uppercase mb-3">
+          <div className="ticket-qr bg-[#faf6f2] border-2 border-[#eadfd6] rounded-xl p-3.5 sm:p-4 flex flex-col items-center text-center">
+            <span className="text-[9px] font-mono text-[#8a7772] tracking-wider uppercase mb-2">
               SCAN KODE QR DI LOKASI RACE PACK & GATE
             </span>
-            <div className="bg-white p-4 rounded-xl shadow-md border border-[#e2d6ca]">
+            <div className="bg-white p-3 rounded-lg shadow-sm border border-[#e2d6ca]">
               <QRCodeSVG
                 value={ticket.qr_code_token}
-                size={180}
+                size={140}
                 level="H"
                 includeMargin={false}
               />
             </div>
-            <span className="font-mono text-[11px] text-[#8a7772] mt-3 select-all bg-white px-3 py-1 rounded border border-[#e2d6ca]">
+            <span className="font-mono text-[10px] text-[#8a7772] mt-2 select-all bg-white px-2.5 py-0.5 rounded border border-[#e2d6ca]">
               {ticket.qr_code_token}
             </span>
           </div>
 
           {/* Participant & Event Spec */}
-          <div className="space-y-3 pt-2 text-xs sm:text-sm text-[#4a4443]">
-            <div className="flex justify-between items-center py-2 border-b border-[#f0e6dd]">
+          <div className="ticket-meta space-y-2 pt-1 text-xs text-[#4a4443]">
+            <div className="flex justify-between items-center py-1.5 border-b border-[#f0e6dd]">
               <span className="text-[#8a7772] flex items-center gap-2">
-                <Shirt className="w-4 h-4 text-[#a91024]" /> Ukuran Jersey
+                <Shirt className="w-3.5 h-3.5 text-[#a91024]" /> Ukuran Jersey
               </span>
-              <span className="font-bold text-[#1f2024] font-mono text-base">Size {ticket.jersey_size || 'M'}</span>
+              <span className="font-bold text-[#1f2024] font-mono text-sm">Size {ticket.jersey_size || 'M'}</span>
             </div>
 
-            <div className="flex justify-between items-center py-2 border-b border-[#f0e6dd]">
+            <div className="flex justify-between items-center py-1.5 border-b border-[#f0e6dd]">
               <span className="text-[#8a7772] flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-[#a91024]" /> Jadwal Race
+                <Calendar className="w-3.5 h-3.5 text-[#a91024]" /> Jadwal Race
               </span>
               <span className="font-semibold text-[#1f2024]">Minggu, 29 Nov 2026 · 05:30 WIB</span>
             </div>
 
-            <div className="flex justify-between items-center py-2 border-b border-[#f0e6dd]">
+            <div className="flex justify-between items-center py-1.5 border-b border-[#f0e6dd]">
               <span className="text-[#8a7772] flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#a91024]" /> Lokasi Start / Finish
+                <MapPin className="w-3.5 h-3.5 text-[#a91024]" /> Lokasi Start / Finish
               </span>
               <span className="font-semibold text-[#1f2024] text-right">Masjid Moekhlas Sidik Pandaan</span>
             </div>
@@ -167,13 +167,13 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
         </div>
 
         {/* Footer Card */}
-        <div className="bg-[#1f1b19] px-6 py-4 text-center text-[#baa79d] text-[11px]">
+        <div className="ticket-footer bg-[#1f1b19] px-5 py-3 text-center text-[#baa79d] text-[10px]">
           Tunjukkan QR Code ini pada panitia untuk mengambil race pack atau check-in gerbang start.
         </div>
       </div>
 
       {/* Button Action */}
-      <div className="mt-6 flex gap-4 text-xs font-semibold print:hidden">
+      <div className="mt-5 flex gap-4 text-xs font-semibold print:hidden">
         <button
           onClick={() => window.print()}
           className="bg-white border border-[#d9c8bb] text-[#1f2024] px-5 py-2.5 rounded-xl shadow-sm hover:bg-[#faf6f2] transition flex items-center gap-2 cursor-pointer"
@@ -190,9 +190,35 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
 
       <style>{`
         @media print {
-          body {
-            background: white !important;
+          @page {
+            size: A4 portrait;
+            margin: 12mm 15mm;
+          }
+          html, body {
+            background: #ffffff !important;
             padding: 0 !important;
+            margin: 0 !important;
+            width: 100% !important;
+            height: auto !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+          }
+          .ticket-page-wrapper {
+            background: transparent !important;
+            padding: 0 !important;
+            min-height: auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .ticket-card {
+            box-shadow: none !important;
+            border: 1.5px solid #d4c4b6 !important;
+            max-width: 500px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
           }
           .print\\:hidden {
             display: none !important;

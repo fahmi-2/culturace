@@ -33,21 +33,37 @@ export default function Home() {
   const handleOrderConfirmation = async (orderId: string) => {
     setIsConfirming(true)
     setModal('pass')
-    try {
-      const res = await fetch('/api/orders/confirm', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orderId })
-      })
-      const data = await res.json()
-      if (data.ticket) {
-        setTicketData(data.ticket)
+
+    // Polling retry hingga tiket berhasil digenerate di database
+    let attempts = 0
+    const maxAttempts = 6
+
+    const checkConfirm = async () => {
+      try {
+        const res = await fetch('/api/orders/confirm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId })
+        })
+        const data = await res.json()
+        if (data.ticket) {
+          setTicketData(data.ticket)
+          setIsConfirming(false)
+          return
+        }
+      } catch (err) {
+        console.error('Failed to confirm ticket:', err)
       }
-    } catch (err) {
-      console.error('Failed to confirm ticket:', err)
-    } finally {
-      setIsConfirming(false)
+
+      attempts++
+      if (attempts < maxAttempts) {
+        setTimeout(checkConfirm, 2000)
+      } else {
+        setIsConfirming(false)
+      }
     }
+
+    checkConfirm()
   }
 
   // Real dataset pelari dari database
@@ -634,16 +650,33 @@ export default function Home() {
           <button 
             type="button"
             className="btn btn-primary full" 
-            style={{ padding: '14px 20px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+            disabled={!ticketData}
+            style={{ 
+              padding: '14px 20px', 
+              fontSize: '13px', 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              gap: '8px',
+              opacity: !ticketData ? 0.7 : 1,
+              cursor: !ticketData ? 'not-allowed' : 'pointer'
+            }}
             onClick={() => {
               if (ticketData?.qr_code_token) {
                 window.open(`/ticket/${ticketData.qr_code_token}?print=true`, '_blank');
-              } else {
-                window.print();
               }
             }}
           >
-            <Download size={17} /> Cetak / Unduh PDF E-Ticket Resmi
+            {ticketData ? (
+              <>
+                <Download size={17} /> Cetak / Unduh PDF E-Ticket Resmi
+              </>
+            ) : (
+              <>
+                <span style={{ display: 'inline-block', width: '14px', height: '14px', border: '2px solid #ffffff', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
+                Menyiapkan PDF E-Ticket Resmi...
+              </>
+            )}
           </button>
         </div>
       </>}</div></div>}
