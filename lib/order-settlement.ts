@@ -153,8 +153,8 @@ export async function processOrderSettlement(orderId: string, reqHost?: string):
         timeStyle: 'short'
       });
 
-      const waInvoiceMessage = 
-`🧾 *INVOICE PEMBAYARAN RESMI - CULTURACE 2026*
+      const waInvoiceMessage =
+        `🧾 *INVOICE PEMBAYARAN RESMI - CULTURACE 2026*
 ------------------------------------------------
 Yth. *${customerName}*,
 Terima kasih, pembayaran tiket Anda telah kami terima dan terverifikasi secara sah.
@@ -174,7 +174,7 @@ E-Ticket resmi telah kami kirimkan ke email Anda (*${customerEmail}*).
 Anda juga dapat melihat barcode/QR kartu peserta secara langsung pada tautan berikut:
 ${ticketRecord.ticket_url}
 
-Simpan pesan ini sebagai bukti transaksi resmi saat pengambilan Race Pack di Masjid Moekhlas Sidik Pandaan.
+Simpan pesan ini sebagai bukti transaksi resmi saat pengambilan Race Pack di Masjid Merah Moekhlas Sidik Pandaan.
 
 Salam hangat,
 *Panitia Pelaksana Culturace 2026*`;

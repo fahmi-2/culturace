@@ -54,7 +54,7 @@ export async function GET(request: Request) {
         END AS net_time,
         CASE 
           WHEN t.is_used = TRUE THEN 'Gate Start (Checked-in)'
-          ELSE 'Masjid Moekhlas Sidik'
+          ELSE 'Masjid Merah Moekhlas Sidik'
         END AS last_checkpoint,
         '--:--:--' AS split_time,
         u.name AS runner_name,

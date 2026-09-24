@@ -70,7 +70,7 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
                 OFFICIAL RACE PASS
               </span>
               <h1 className="text-xl sm:text-2xl font-black tracking-tight">CULTURACE 2026</h1>
-              <p className="text-[11px] text-[#f7dfe0] mt-0.5">Masjid Moekhlas Sidik Race Edition · Pandaan</p>
+              <p className="text-[11px] text-[#f7dfe0] mt-0.5">Masjid Merah Moekhlas Sidik Race Edition · Pandaan</p>
             </div>
             <div className="text-right">
               <span className="text-[10px] font-mono text-[#f3ba61] block">KATEGORI</span>
@@ -161,7 +161,7 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
               <span className="text-[#8a7772] flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#a91024]" /> Lokasi Start / Finish
               </span>
-              <span className="font-semibold text-[#1f2024] text-right">Masjid Moekhlas Sidik Pandaan</span>
+              <span className="font-semibold text-[#1f2024] text-right">Masjid Merah Moekhlas Sidik Pandaan</span>
             </div>
           </div>
         </div>

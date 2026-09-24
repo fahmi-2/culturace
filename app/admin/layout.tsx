@@ -42,11 +42,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs transition ${
-                  isActive
+                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-xs transition ${isActive
                     ? 'bg-[#a91024] text-white font-semibold shadow-sm'
                     : 'text-[#baa79d] hover:bg-[#252021] hover:text-white'
-                }`}
+                  }`}
               >
                 <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-white' : 'text-[#8a7772]'}`} />
                 <span>{item.name}</span>
@@ -79,7 +78,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <main className="flex-1 overflow-y-auto">
         <header className="h-16 bg-white border-b border-[#e5ded7] px-6 sm:px-8 flex items-center justify-between sticky top-0 z-30 shadow-xs">
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs text-[#8a7772]">MASJID MOEKHLAS SIDIK RACE EDITION 2026</span>
+            <span className="font-mono text-xs text-[#8a7772]">Masjid Merah Moekhlas Sidik RACE EDITION 2026</span>
           </div>
           <div className="flex items-center gap-3 text-xs">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold font-mono text-[10px]">

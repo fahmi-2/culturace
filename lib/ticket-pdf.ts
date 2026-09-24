@@ -86,7 +86,7 @@ export async function generateTicketPdf(params: GenerateTicketPdfParams): Promis
 
     // Judul Acara
     doc.fillColor('#ffffff').fontSize(22).font('Helvetica-Bold').text('CULTURACE 2026', cardX + 24, cardY + 40);
-    doc.fillColor('#f8d7da').fontSize(9.5).font('Helvetica').text('Masjid Moekhlas Sidik Race Edition · Pandaan', cardX + 24, cardY + 67);
+    doc.fillColor('#f8d7da').fontSize(9.5).font('Helvetica').text('Masjid Merah Moekhlas Sidik Race Edition · Pandaan', cardX + 24, cardY + 67);
 
     // Kategori di kanan atas
     doc.fillColor('#f3ba61').fontSize(8.5).font('Helvetica-Bold').text('KATEGORI', cardX + cardWidth - 110, cardY + 22, { width: 85, align: 'right' });
@@ -96,10 +96,10 @@ export async function generateTicketPdf(params: GenerateTicketPdfParams): Promis
     // 2. HERO BIB & PESERTA
     const heroY = cardY + headerHeight + 18;
     doc.fillColor('#8a7772').fontSize(9).font('Helvetica-Bold').text('NOMOR BIB RESMI', cardX, heroY, { width: cardWidth, align: 'center' });
-    
+
     // Angka BIB Besar
     doc.fillColor('#a91024').fontSize(54).font('Helvetica-Bold').text(bibNumber, cardX, heroY + 14, { width: cardWidth, align: 'center' });
-    
+
     // Nama Peserta
     doc.fillColor('#1f2024').fontSize(18).font('Helvetica-Bold').text(customerName.toUpperCase(), cardX, heroY + 76, { width: cardWidth, align: 'center' });
     doc.fillColor('#8a7772').fontSize(9.5).font('Helvetica').text(`ORDER ID: #${orderId}`, cardX, heroY + 100, { width: cardWidth, align: 'center' });
@@ -159,7 +159,7 @@ export async function generateTicketPdf(params: GenerateTicketPdfParams): Promis
 
     drawMetaRow('Ukuran Jersey Peserta', `Size ${jerseySize || 'M'}`, metaY);
     drawMetaRow('Jadwal Pelaksanaan Race', 'Minggu, 29 Nov 2026 · 05:30 WIB', metaY + 24);
-    drawMetaRow('Lokasi Start / Finish', 'Masjid Moekhlas Sidik Pandaan, Pasuruan', metaY + 48);
+    drawMetaRow('Lokasi Start / Finish', 'Masjid Merah Moekhlas Sidik Pandaan, Pasuruan', metaY + 48);
 
     // 6. FOOTER KARTU
     const footerHeight = 44;

@@ -45,14 +45,14 @@ export const TicketEmail = (props: TicketEmailProps): React.ReactElement => {
       <Preview>E-Ticket & Nota Resmi: {eventName} (Order #{orderId})</Preview>
       <Body style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif', backgroundColor: '#f5f0eb', padding: '30px 10px' }}>
         <Container style={{ backgroundColor: '#ffffff', borderRadius: '16px', overflow: 'hidden', maxWidth: '580px', margin: '0 auto', boxShadow: '0 4px 24px rgba(0,0,0,0.08)', border: '1px solid #e7ded6' }}>
-          
+
           {/* Header */}
           <Section style={{ backgroundColor: '#8a0e1e', padding: '32px 30px', textAlign: 'center' }}>
             <Heading style={{ color: '#ffffff', margin: '0', fontSize: '26px', letterSpacing: '2px', fontWeight: '900' }}>
               CULTURACE 2026
             </Heading>
             <Text style={{ color: '#f8d7da', margin: '6px 0 0 0', fontSize: '13px', letterSpacing: '1px' }}>
-              MASJID MOEKHLAS SIDIK RACE EDITION · PANDAAN
+              Masjid Merah Moekhlas Sidik RACE EDITION · PANDAAN
             </Text>
           </Section>
 
@@ -144,7 +144,7 @@ export const TicketEmail = (props: TicketEmailProps): React.ReactElement => {
 
             <Text style={{ fontSize: '13px', color: '#8a7772', lineHeight: '1.5', margin: '0' }}>
               <strong>Petunjuk Race Pack Collection:</strong><br />
-              Simpan bukti email ini atau buka tautan E-Ticket Anda saat pengambilan race pack di lokasi acara Masjid Moekhlas Sidik Pandaan, Pasuruan.
+              Simpan bukti email ini atau buka tautan E-Ticket Anda saat pengambilan race pack di lokasi acara Masjid Merah Moekhlas Sidik Pandaan, Pasuruan.
             </Text>
           </Section>
 

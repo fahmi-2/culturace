@@ -18,7 +18,7 @@ async function main() {
   if (events.rows.length === 0) {
     await pool.query(
       'INSERT INTO events (id, name, event_date, description) VALUES (1, $1, $2, $3) ON CONFLICT (id) DO NOTHING',
-      ['CULTURACE 2026 - Pasuruan Red Edition', '2026-11-29 05:30:00', 'Heritage Run Masjid Moekhlas Sidik Pandaan']
+      ['CULTURACE 2026 - Pasuruan Red Edition', '2026-11-29 05:30:00', 'Heritage Run Masjid Merah Moekhlas Sidik Pandaan']
     );
     console.log('Default event ID 1 created in Supabase!');
   }

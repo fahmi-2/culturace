@@ -81,7 +81,7 @@ export default function PublicLeaderboardPage() {
               Leaderboard 5K Fun Run
             </h1>
             <p className="text-xs sm:text-sm text-[#f7dfe0] mt-2 max-w-lg leading-relaxed">
-              Culturace 2026 · Masjid Moekhlas Sidik Race Edition Pandaan, Pasuruan.
+              Culturace 2026 · Masjid Merah Moekhlas Sidik Race Edition Pandaan, Pasuruan.
             </p>
           </div>
 

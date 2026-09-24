@@ -156,7 +156,7 @@ export default function Home() {
 
   return <main className="site-shell">
     <nav className="navbar">
-      <a href="#top" className="brand brand-header" aria-label="CULTURACE - Masjid Moekhlas Sidik Race Edition">
+      <a href="#top" className="brand brand-header" aria-label="CULTURACE - Masjid Merah Moekhlas Sidik Race Edition">
         <img
           src="/logobawah-transparent.png"
           alt="CULTURACE Logo"
@@ -165,7 +165,7 @@ export default function Home() {
         <div className="brand-badge-box">
           <span className="brand-edition-capsule">
             <span className="brand-edition-dot" />
-            MASJID MOEKHLAS SIDIK RACE EDITION
+            Masjid Merah Moekhlas Sidik RACE EDITION
           </span>
         </div>
       </a>
@@ -202,7 +202,7 @@ export default function Home() {
               <div className="brand-badge-box">
                 <span className="brand-edition-capsule">
                   <span className="brand-edition-dot" />
-                  MASJID MOEKHLAS SIDIK RACE EDITION
+                  Masjid Merah Moekhlas Sidik RACE EDITION
                 </span>
               </div>
             </div>
@@ -246,7 +246,7 @@ export default function Home() {
       <div className="hero-content">
         <div className="eyebrow"><span /> PANDAAN — PASURUAN CULTURAL HERITAGE RUN</div>
         <h1>Lari melintasi<br /><em>keagungan budaya</em><br />dan landmark merah.</h1>
-        <p>Rasakan energi Pasuruan dalam satu langkah. Menyusuri jejak heritage, sawah hijau, dan arsitektur Masjid Moekhlas Sidik yang ikonik.</p>
+        <p>Rasakan energi Pasuruan dalam satu langkah. Menyusuri jejak heritage, sawah hijau, dan arsitektur Masjid Merah Moekhlas Sidik yang ikonik.</p>
         <div className="hero-actions">
           <button className="btn btn-gold" onClick={() => openRegister()}>Daftar Sekarang <ArrowRight size={17} /></button>
           <a className="text-link" href="#route">Jelajahi rute <ChevronRight size={17} /></a>
@@ -347,14 +347,14 @@ export default function Home() {
         </div>
       </div>
     </div>
-    <section className="section categories-section" id="categories"><div className="section-heading"><div><span className="kicker">ONE RACE ONE STORY</span></div><p>Setiap kategori dirancang untuk menghadirkan pengalaman budaya yang berbeda. Temukan jarak yang sesuai dengan ceritamu.</p></div><div className="category-grid">{categories.map(cat => <article className={`category-card ${cat.tone}`} key={cat.id}>{cat.popular && <span className="popular">MOST POPULAR</span>}<div className="category-top"><span className="distance">{cat.id}</span><span className="category-icon"><Zap size={18} /></span></div><h3>{cat.title}</h3><p>{cat.subtitle}</p><strong className="price">Rp {formatIDR(cat.price)} <del>Rp {formatIDR(cat.regularPrice)}</del></strong><small className="early-bird">EARLY BIRD · HEMAT Rp {formatIDR(cat.regularPrice - cat.price)}</small><ul>{['Jersey Dry-Fit Batik Pasuruan', 'Finisher medal logam emas', 'BIB number + timing chip', 'Refreshments sepanjang rute', 'Asuransi perlombaan'].map(item => <li key={item}><Check size={15} />{item}</li>)}</ul><button className="btn btn-outline" onClick={() => openRegister(cat)}>Pilih Kategori <ArrowRight size={15} /></button></article>)}</div></section>
+    <section className="section categories-section" id="categories"><div className="section-heading"><div><span className="kicker">ONE RACE ONE STORY</span></div><p>Satu lintasan, satu rasa yang mendalam. Langkah boleh sederhana, namun ceritanya mengakar selamanya.</p></div><div className="category-grid">{categories.map(cat => <article className={`category-card ${cat.tone}`} key={cat.id}>{cat.popular && <span className="popular">MOST POPULAR</span>}<div className="category-top"><span className="distance">{cat.id}</span><span className="category-icon"><Zap size={18} /></span></div><h3>{cat.title}</h3><p>{cat.subtitle}</p><strong className="price">Rp {formatIDR(cat.price)} <del>Rp {formatIDR(cat.regularPrice)}</del></strong><small className="early-bird">EARLY BIRD · HEMAT Rp {formatIDR(cat.regularPrice - cat.price)}</small><ul>{['Jersey Dry-Fit Batik Pasuruan', 'Finisher medal logam emas', 'BIB number + timing chip', 'Refreshments sepanjang rute', 'Asuransi perlombaan'].map(item => <li key={item}><Check size={15} />{item}</li>)}</ul><button className="btn btn-outline" onClick={() => openRegister(cat)}>Pilih Kategori <ArrowRight size={15} /></button></article>)}</div></section>
     <section className="section route-section" id="route">
       <div className="section-heading">
         <div>
           <span className="kicker">THE RED LOOP</span>
           <h2>Rute yang<br /><em>punya cerita.</em></h2>
         </div>
-        <p>Dari pelataran Masjid Moekhlas Sidik, melewati warisan budaya dan kontur alam Pandaan. Setiap kilometer adalah bab baru.</p>
+        <p>Dari pelataran Masjid Merah Moekhlas Sidik, melewati warisan budaya dan kontur alam Pandaan. Setiap kilometer adalah bab baru.</p>
         <small className="route-address">
           <MapPin size={14} /> Jalan Sukorame, Durensewu, Pandaan, Pasuruan 67156 ·
           <a href="https://www.google.com/maps/dir/?api=1&destination=-7.6712,112.6983" target="_blank" rel="noreferrer">
@@ -417,7 +417,7 @@ export default function Home() {
                   <b>{r.runner_name}</b>
                   <small>BIB #{r.bib_number}</small>
                 </div>
-                <span>{r.last_checkpoint || 'Masjid Moekhlas Sidik'}</span>
+                <span>{r.last_checkpoint || 'Masjid Merah Moekhlas Sidik'}</span>
                 <span>{r.split_time || '--:--:--'}</span>
                 <strong>{r.net_time || (r.is_finished ? r.formatted_duration : 'On Track')}</strong>
               </div>
@@ -436,7 +436,7 @@ export default function Home() {
         <div className="brand-badge-box">
           <span className="brand-edition-capsule brand-capsule-footer">
             <span className="brand-edition-dot brand-dot-gold" />
-            MASJID MOEKHLAS SIDIK RACE EDITION
+            Masjid Merah Moekhlas Sidik RACE EDITION
           </span>
         </div>
       </div>

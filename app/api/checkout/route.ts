@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     if (eventRes.rows.length === 0) {
       const newEvent = await pool.query(
         `INSERT INTO events (id, name, event_date, description)
-         VALUES (1, 'CULTURACE 2026 - Pasuruan Red Edition', '2026-11-29 05:30:00', 'Heritage Run Masjid Moekhlas Sidik Pandaan')
+         VALUES (1, 'CULTURACE 2026 - Pasuruan Red Edition', '2026-11-29 05:30:00', 'Heritage Run Masjid Merah Moekhlas Sidik Pandaan')
          ON CONFLICT (id) DO NOTHING
          RETURNING id`
       );

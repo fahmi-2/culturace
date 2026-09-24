@@ -56,7 +56,7 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
         CULTURACE 2026
       </h1>
       <p style="color: #f8d7da; margin: 6px 0 0 0; font-size: 13px; letter-spacing: 1px;">
-        MASJID MOEKHLAS SIDIK RACE EDITION · PANDAAN
+        Masjid Merah Moekhlas Sidik RACE EDITION · PANDAAN
       </p>
     </div>
 
@@ -132,7 +132,7 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
 
       <p style="font-size: 12px; color: #8a7772; line-height: 1.5; margin: 0;">
         <strong>Petunjuk Race Pack Collection:</strong><br />
-        Tunjukkan file PDF terlampir atau buka link e-ticket saat pengambilan race pack di lokasi Masjid Moekhlas Sidik Pandaan, Pasuruan.
+        Tunjukkan file PDF terlampir atau buka link e-ticket saat pengambilan race pack di lokasi Masjid Merah Moekhlas Sidik Pandaan, Pasuruan.
       </p>
     </div>
 
