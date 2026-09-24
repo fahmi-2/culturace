@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 import pool from '@/lib/db';
 import { sendTicketEmail } from '@/lib/mailer';
+import { generateTicketPdf } from '@/lib/ticket-pdf';
 
 export interface ProcessSettlementResult {
   success: boolean;
@@ -97,10 +98,26 @@ export async function processOrderSettlement(orderId: string, reqHost?: string):
     ticketRecord = insertRes.rows[0];
   }
 
-  // 4. Kirim Email E-Ticket via Gmail SMTP
+  // 4. Kirim Email E-Ticket via Gmail SMTP dengan Berkas PDF Terlampir
   let emailSent = false;
   if (customerEmail) {
     try {
+      // Generate PDF E-Ticket resmi (1 halaman pas)
+      let pdfAttachment: Buffer | undefined;
+      try {
+        pdfAttachment = await generateTicketPdf({
+          customerName,
+          orderId,
+          bibNumber: ticketRecord.bib_number,
+          categoryName: `${category} Fun Run`,
+          jerseySize: jerseySize || 'M',
+          qrCodeToken: ticketRecord.qr_code_token,
+          amount: Number(totalAmount),
+        });
+      } catch (pdfErr) {
+        console.error('[PDF Generation Warning] Failed to generate PDF buffer:', pdfErr);
+      }
+
       await sendTicketEmail({
         to: customerEmail,
         customerName,
@@ -111,10 +128,11 @@ export async function processOrderSettlement(orderId: string, reqHost?: string):
         bibName: customerName,
         jerseySize,
         ticketUrl: ticketRecord.ticket_url,
-        ticketCode: ticketRecord.bib_number
+        ticketCode: ticketRecord.bib_number,
+        pdfAttachment,
       });
       emailSent = true;
-      console.log(`[Email] E-ticket successfully sent to ${customerEmail} for Order #${orderId}`);
+      console.log(`[Email] E-ticket with PDF successfully sent to ${customerEmail} for Order #${orderId}`);
     } catch (emailErr) {
       console.error(`[Email Error] Failed to send email to ${customerEmail}:`, emailErr);
     }

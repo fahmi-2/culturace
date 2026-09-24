@@ -20,6 +20,7 @@ export interface SendTicketEmailParams {
   jerseySize: string;
   ticketUrl: string;
   ticketCode: string;
+  pdfAttachment?: Buffer;
 }
 
 export async function sendTicketEmail(params: SendTicketEmailParams) {
@@ -34,6 +35,7 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
     jerseySize,
     ticketUrl,
     ticketCode,
+    pdfAttachment,
   } = params;
 
   const formattedAmount = new Intl.NumberFormat('id-ID').format(amount);
@@ -64,7 +66,7 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
         Pembayaran Berhasil!
       </h2>
       <p style="font-size: 14px; color: #555; line-height: 1.6; margin: 0 0 20px 0;">
-        Halo <strong>${customerName}</strong>, pendaftaranmu telah terkonfirmasi. Berikut adalah bukti nota pembayaran dan akses e-ticket digital lomba lari Culturace 2026.
+        Halo <strong>${customerName}</strong>, pendaftaranmu telah terkonfirmasi. Berkas resmi <strong>E-Ticket PDF (1 Halaman)</strong> telah terlampir langsung di bawah email ini dan siap diunduh atau dicetak.
       </p>
 
       <!-- Ticket Card Preview -->
@@ -119,10 +121,10 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
         </table>
       </div>
 
-      <!-- Tombol E-Ticket & Cetak PDF -->
+      <!-- Tombol Unduh / Akses E-Ticket -->
       <div style="text-align: center; margin: 26px 0 16px 0;">
-        <a href="${ticketUrl}?print=true" target="_blank" style="background-color: #8a0e1e; color: #ffffff; padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(138,14,30,0.25);">
-          📄 Cetak / Unduh PDF E-Ticket
+        <a href="${ticketUrl.replace(/\/ticket\//, '/api/ticket/')}/pdf" target="_blank" style="background-color: #8a0e1e; color: #ffffff; padding: 13px 28px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(138,14,30,0.25);">
+          📥 Unduh Langsung PDF E-Ticket (1 Halaman)
         </a>
       </div>
 
@@ -130,7 +132,7 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
 
       <p style="font-size: 12px; color: #8a7772; line-height: 1.5; margin: 0;">
         <strong>Petunjuk Race Pack Collection:</strong><br />
-        Simpan bukti email ini atau buka link E-Ticket Anda saat pengambilan race pack di lokasi Masjid Moekhlas Sidik Pandaan, Pasuruan.
+        Tunjukkan file PDF terlampir atau buka link e-ticket saat pengambilan race pack di lokasi Masjid Moekhlas Sidik Pandaan, Pasuruan.
       </p>
     </div>
 
@@ -147,10 +149,22 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
 </html>
   `;
 
-  return await mailTransporter.sendMail({
+  const mailOptions: any = {
     from: `"Culturace Official" <${process.env.GMAIL_USER}>`,
     to,
-    subject: `E-Ticket & Nota Resmi: ${eventName} (BIB #${ticketCode})`,
+    subject: `E-Ticket Resmi: ${eventName} (BIB #${ticketCode})`,
     html: htmlContent,
-  });
+  };
+
+  if (pdfAttachment) {
+    mailOptions.attachments = [
+      {
+        filename: `E-Ticket-Culturace-${ticketCode || orderId}.pdf`,
+        content: pdfAttachment,
+        contentType: 'application/pdf',
+      },
+    ];
+  }
+
+  return await mailTransporter.sendMail(mailOptions);
 }
