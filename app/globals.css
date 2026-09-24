@@ -1176,11 +1176,11 @@ button {
 
 .hero {
     position: relative;
-    min-height: 615px;
-    background: #3a0a18;
+    min-height: 640px;
+    background: #1a050b;
     color: #fff;
     display: flex;
-    padding: 90px 12% 80px;
+    padding: 100px 12% 110px;
     overflow: hidden
 }
 
@@ -1196,14 +1196,21 @@ button {
     object-fit: cover;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.38;
-    filter: saturate(1.2) contrast(1.1);
+    opacity: 0.88;
+    filter: saturate(1.15) contrast(1.05);
 }
 
 .hero-video-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(114deg, rgba(58, 10, 24, 0.94) 0%, rgba(142, 16, 37, 0.85) 50%, rgba(197, 30, 53, 0.78) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(15, 3, 7, 0.72) 0%,
+        rgba(35, 6, 14, 0.45) 35%,
+        rgba(138, 14, 30, 0.55) 70%,
+        rgba(169, 16, 36, 0.82) 86%,
+        var(--cream) 100%
+    );
     z-index: 1;
     pointer-events: none;
 }
@@ -1251,7 +1258,8 @@ button {
     line-height: 1.04;
     letter-spacing: -.07em;
     margin: 23px 0 20px;
-    font-weight: 700
+    font-weight: 700;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
 .hero h1 em,
@@ -1264,8 +1272,9 @@ h2 em {
 .hero p {
     font-size: 13px;
     line-height: 1.8;
-    color: #f7dfe0;
-    max-width: 450px
+    color: #fceeed;
+    max-width: 480px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 .hero-actions {

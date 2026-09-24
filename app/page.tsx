@@ -243,7 +243,6 @@ export default function Home() {
         playsInline
       />
       <div className="hero-video-overlay" />
-      <div className="hero-pattern" />
       <div className="hero-content">
         <div className="eyebrow"><span /> PANDAAN — PASURUAN CULTURAL HERITAGE RUN</div>
         <h1>Lari melintasi<br /><em>keagungan budaya</em><br />dan landmark merah.</h1>
@@ -257,14 +256,6 @@ export default function Home() {
           <div><strong>1</strong><small>KATEGORI</small></div>
           <div><strong>Rp 20<span>jt</span></strong><small>PRIZE POOL</small></div>
         </div>
-      </div>
-      <div className="hero-art">
-        <div className="arch arch-back" />
-        <div className="arch arch-front">
-          <div className="dome">C</div>
-          <div className="stairs" />
-        </div>
-        <div className="art-caption"><MapPin size={14} /> Masjid Moekhlas Sidik · PANDAAN</div>
       </div>
     </section>
     {/* Advance Calendar Style Countdown Section */}
