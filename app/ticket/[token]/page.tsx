@@ -188,7 +188,7 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
         </Link>
       </div>
 
-      <style jsx global>{`
+      <style>{`
         @media print {
           body {
             background: white !important;
