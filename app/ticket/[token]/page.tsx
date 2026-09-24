@@ -17,6 +17,12 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
       .then(data => {
         if (data.ticket) {
           setTicket(data.ticket)
+          // Jika dibuka dengan parameter ?print=true, otomatis buka dialog print/PDF browser
+          if (typeof window !== 'undefined' && window.location.search.includes('print=true')) {
+            setTimeout(() => {
+              window.print();
+            }, 600);
+          }
         } else {
           setError(data.error || 'Tiket tidak ditemukan')
         }

@@ -26,9 +26,14 @@ export async function POST(request: Request) {
 
     const currentOrder = orderDb.rows[0];
 
+    // Ambil host dinamis dari request header (baik di Vercel maupun local)
+    const hostHeader = request.headers.get('x-forwarded-host') || request.headers.get('host');
+    const protoHeader = request.headers.get('x-forwarded-proto') || 'https';
+    const dynamicHost = hostHeader ? `${protoHeader}://${hostHeader}` : undefined;
+
     // Jika sudah pernah settlement sebelumnya, tetap panggil processOrderSettlement untuk memastikan tiket ada dan return datanya
     if (currentOrder.status === 'settlement') {
-      const result = await processOrderSettlement(orderId);
+      const result = await processOrderSettlement(orderId, dynamicHost);
       return NextResponse.json(result);
     }
 
@@ -60,7 +65,7 @@ export async function POST(request: Request) {
 
     // 3. Jika status settlement (atau saat Snap popup client callback sukses di sandbox)
     // Selesaikan pemesanan, buat tiket, dan kirim email
-    const result = await processOrderSettlement(orderId);
+    const result = await processOrderSettlement(orderId, dynamicHost);
     return NextResponse.json(result);
 
   } catch (error: any) {

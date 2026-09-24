@@ -22,7 +22,7 @@ export interface ProcessSettlementResult {
   message?: string;
 }
 
-export async function processOrderSettlement(orderId: string): Promise<ProcessSettlementResult> {
+export async function processOrderSettlement(orderId: string, reqHost?: string): Promise<ProcessSettlementResult> {
   // 1. Update status order menjadi settlement
   await pool.query(
     `UPDATE orders 
@@ -81,8 +81,12 @@ export async function processOrderSettlement(orderId: string): Promise<ProcessSe
 
     // Generate Token Unik untuk QR Code
     const qrCodeToken = `CULT-${category}-${crypto.randomBytes(8).toString('hex').toUpperCase()}`;
-    const appHost = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-    const ticketUrl = `${appHost}/ticket/${qrCodeToken}`;
+    const baseHost = (
+      reqHost ||
+      process.env.NEXT_PUBLIC_APP_URL ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
+    ).replace(/\/$/, '');
+    const ticketUrl = `${baseHost}/ticket/${qrCodeToken}`;
 
     const insertRes = await pool.query(
       `INSERT INTO tickets (order_id, user_id, bib_number, qr_code_token, ticket_url, ticket_code, racepack_taken, is_used)

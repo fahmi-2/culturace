@@ -119,10 +119,10 @@ export async function sendTicketEmail(params: SendTicketEmailParams) {
         </table>
       </div>
 
-      <!-- Tombol E-Ticket -->
+      <!-- Tombol E-Ticket & Cetak PDF -->
       <div style="text-align: center; margin: 26px 0 16px 0;">
-        <a href="${ticketUrl}" target="_blank" style="background-color: #8a0e1e; color: #ffffff; padding: 13px 26px; border-radius: 8px; font-size: 15px; font-weight: bold; text-decoration: none; display: inline-block;">
-          Buka E-Ticket & Barcode Race
+        <a href="${ticketUrl}?print=true" target="_blank" style="background-color: #8a0e1e; color: #ffffff; padding: 13px 26px; border-radius: 8px; font-size: 14px; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 12px rgba(138,14,30,0.25);">
+          📄 Cetak / Unduh PDF E-Ticket
         </a>
       </div>
 

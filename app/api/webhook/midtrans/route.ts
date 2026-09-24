@@ -30,10 +30,12 @@ export async function POST(request: Request) {
       if (fraudStatus === 'challenge') {
         console.log(`Transaction is challenged for Order ID: ${orderId}`);
       } else if (fraudStatus === 'accept' || !fraudStatus) {
-        console.log(`Payment success/settlement for Order ID: ${orderId}`);
+        const hostHeader = request.headers.get('x-forwarded-host') || request.headers.get('host');
+        const protoHeader = request.headers.get('x-forwarded-proto') || 'https';
+        const dynamicHost = hostHeader ? `${protoHeader}://${hostHeader}` : undefined;
 
         // Proses settlement, pembuatan tiket, dan pengiriman email e-ticket
-        await processOrderSettlement(orderId);
+        await processOrderSettlement(orderId, dynamicHost);
       }
     } else if (['cancel', 'deny', 'expire'].includes(transactionStatus)) {
       await pool.query(

@@ -630,64 +630,22 @@ export default function Home() {
           ✓ Bukti nota pembayaran & e-ticket digital telah dikirimkan ke email <b>{ticketData?.user_email || formData.email || 'peserta'}</b> dan WhatsApp <b>{ticketData?.user_phone || formData.phone}</b>.
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '12px' }}>
+        <div style={{ marginTop: '16px' }}>
           <button 
             type="button"
-            className="btn btn-outline" 
-            style={{ padding: '11px 14px', fontSize: '11px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
+            className="btn btn-primary full" 
+            style={{ padding: '14px 20px', fontSize: '13px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
             onClick={() => {
-              if (ticketData?.ticket_url) {
-                window.open(ticketData.ticket_url, '_blank');
+              if (ticketData?.qr_code_token) {
+                window.open(`/ticket/${ticketData.qr_code_token}?print=true`, '_blank');
               } else {
                 window.print();
               }
             }}
           >
-            <Download size={15} /> Cetak / Unduh PDF
+            <Download size={17} /> Cetak / Unduh PDF E-Ticket Resmi
           </button>
-          
-          <a
-            href={ticketData?.ticket_url || (ticketData?.qr_code_token ? `/ticket/${ticketData.qr_code_token}` : '#')}
-            target="_blank"
-            rel="noreferrer"
-            className="btn btn-gold"
-            style={{ textDecoration: 'none', padding: '11px 14px', fontSize: '11px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}
-          >
-            <ExternalLink size={15} /> E-Ticket Penuh
-          </a>
         </div>
-
-        <button className="btn btn-primary full" onClick={() => setModal('scanner')}>
-          Buka Marshal Scanner <Crosshair size={17} />
-        </button>
-      </>}
-      {modal === 'scanner' && <>
-        <div className="scanner-head"><span>MARSHAL SCANNER</span><span className="status ready">● ONLINE</span></div>
-        <h2>Scan race pass.</h2>
-        <div className="viewfinder">
-          <div className="corner tl" />
-          <div className="corner tr" />
-          <div className="corner bl" />
-          <div className="corner br" />
-          {scanned && (
-            <div className="scan-result">
-              <Check size={22} />
-              <b>VALID RACE PASS</b>
-              <small>
-                {ticketData?.user_name || completedOrder?.name || formData.name || 'PESERTA CULTURACE'} · BIB #{ticketData?.bib_number || completedOrder?.bib || '5K-001'}
-              </small>
-            </div>
-          )}
-        </div>
-        {scanned ? (
-          <button className="btn btn-primary full" onClick={() => setModal('pass')}>
-            Konfirmasi Pengambilan & Cetak BIB <Check size={17} />
-          </button>
-        ) : (
-          <button className="btn btn-gold full" onClick={() => setScanned(true)}>
-            Simulasikan Scan QR <QrCode size={17} />
-          </button>
-        )}
       </>}</div></div>}
   </main>
 }
