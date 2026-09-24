@@ -596,7 +596,7 @@ export default function Home() {
       {modal === 'pass' && <>
         <div className="modal-kicker">DIGITAL RACE PASS <span className="status ready">● READY</span></div>
         <h2>See you at the start.</h2>
-        
+
         {isConfirming && !ticketData && (
           <div style={{ background: '#fff9e6', border: '1px solid #ffd166', color: '#8a6d00', padding: '12px', borderRadius: '8px', fontSize: '12px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span style={{ display: 'inline-block', width: '12px', height: '12px', border: '2px solid #8a6d00', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 1s linear infinite' }} />
@@ -647,16 +647,16 @@ export default function Home() {
         </div>
 
         <div style={{ marginTop: '16px' }}>
-          <button 
+          <button
             type="button"
-            className="btn btn-primary full" 
+            className="btn btn-primary full"
             disabled={!ticketData}
-            style={{ 
-              padding: '14px 20px', 
-              fontSize: '13px', 
-              display: 'inline-flex', 
-              alignItems: 'center', 
-              justifyContent: 'center', 
+            style={{
+              padding: '14px 20px',
+              fontSize: '13px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               gap: '8px',
               opacity: !ticketData ? 0.7 : 1,
               cursor: !ticketData ? 'not-allowed' : 'pointer'

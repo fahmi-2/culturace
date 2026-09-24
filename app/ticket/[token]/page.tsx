@@ -61,7 +61,7 @@ export default function TicketPage({ params }: { params: Promise<{ token: string
     <div className="ticket-page-wrapper min-h-screen bg-[#f5f0eb] py-6 sm:py-10 px-4 sm:px-6 flex flex-col items-center justify-center">
       {/* Container Kartu Peserta Resmi */}
       <div className="ticket-card w-full max-w-[520px] bg-white rounded-3xl shadow-xl overflow-hidden border border-[#e4d7cc]">
-        
+
         {/* Header E-Ticket */}
         <div className="ticket-header bg-gradient-to-r from-[#3a0a18] via-[#8e1025] to-[#a91024] p-5 sm:p-6 text-white relative">
           <div className="flex justify-between items-start">
