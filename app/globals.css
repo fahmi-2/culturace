@@ -1177,11 +1177,35 @@ button {
 .hero {
     position: relative;
     min-height: 615px;
-    background: linear-gradient(114deg, #3a0a18 0%, #8e1025 53%, #c51e35 100%);
+    background: #3a0a18;
     color: #fff;
     display: flex;
     padding: 90px 12% 80px;
     overflow: hidden
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.38;
+    filter: saturate(1.2) contrast(1.1);
+}
+
+.hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(114deg, rgba(58, 10, 24, 0.94) 0%, rgba(142, 16, 37, 0.85) 50%, rgba(197, 30, 53, 0.78) 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hero-pattern {
@@ -1190,13 +1214,14 @@ button {
     opacity: .08;
     background-image: radial-gradient(ellipse at center bottom, transparent 0 44%, #f9d99c 45% 46%, transparent 47%);
     background-size: 260px 210px;
-    background-position: 20px 70px
+    background-position: 20px 70px;
+    z-index: 1;
 }
 
 .hero-content {
     max-width: 610px;
     position: relative;
-    z-index: 1
+    z-index: 2;
 }
 
 .eyebrow,
@@ -1288,7 +1313,8 @@ h2 em {
     right: 9%;
     bottom: -17px;
     width: 385px;
-    height: 470px
+    height: 470px;
+    z-index: 2;
 }
 
 .arch {

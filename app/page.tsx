@@ -232,7 +232,41 @@ export default function Home() {
       </div>
     )}
 
-    <section className="hero" id="top"><div className="hero-pattern" /><div className="hero-content"><div className="eyebrow"><span /> PANDAAN — PASURUAN CULTURAL HERITAGE RUN</div><h1>Lari melintasi<br /><em>keagungan budaya</em><br />dan landmark merah.</h1><p>Rasakan energi Pasuruan dalam satu langkah. Menyusuri jejak heritage, sawah hijau, dan arsitektur Masjid Moekhlas Sidik yang ikonik.</p><div className="hero-actions"><button className="btn btn-gold" onClick={() => openRegister()}>Daftar Sekarang <ArrowRight size={17} /></button><a className="text-link" href="#route">Jelajahi rute <ChevronRight size={17} /></a></div><div className="stats"><div><strong>1,500+<span>+</span></strong><small>RUNNERS</small></div><div><strong>1</strong><small>KATEGORI</small></div><div><strong>Rp 20<span>jt</span></strong><small>PRIZE POOL</small></div></div></div><div className="hero-art"><div className="arch arch-back" /><div className="arch arch-front"><div className="dome">C</div><div className="stairs" /></div><div className="art-caption"><MapPin size={14} /> Masjid Moekhlas Sidik · PANDAAN</div></div></section>
+    <section className="hero" id="top">
+      {/* Video Background Berlari */}
+      <video
+        className="hero-video-bg"
+        src="/video running.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="hero-video-overlay" />
+      <div className="hero-pattern" />
+      <div className="hero-content">
+        <div className="eyebrow"><span /> PANDAAN — PASURUAN CULTURAL HERITAGE RUN</div>
+        <h1>Lari melintasi<br /><em>keagungan budaya</em><br />dan landmark merah.</h1>
+        <p>Rasakan energi Pasuruan dalam satu langkah. Menyusuri jejak heritage, sawah hijau, dan arsitektur Masjid Moekhlas Sidik yang ikonik.</p>
+        <div className="hero-actions">
+          <button className="btn btn-gold" onClick={() => openRegister()}>Daftar Sekarang <ArrowRight size={17} /></button>
+          <a className="text-link" href="#route">Jelajahi rute <ChevronRight size={17} /></a>
+        </div>
+        <div className="stats">
+          <div><strong>1,500+<span>+</span></strong><small>RUNNERS</small></div>
+          <div><strong>1</strong><small>KATEGORI</small></div>
+          <div><strong>Rp 20<span>jt</span></strong><small>PRIZE POOL</small></div>
+        </div>
+      </div>
+      <div className="hero-art">
+        <div className="arch arch-back" />
+        <div className="arch arch-front">
+          <div className="dome">C</div>
+          <div className="stairs" />
+        </div>
+        <div className="art-caption"><MapPin size={14} /> Masjid Moekhlas Sidik · PANDAAN</div>
+      </div>
+    </section>
     {/* Advance Calendar Style Countdown Section */}
     <div className="countdown-wrapper">
       <div className="countdown-card">
